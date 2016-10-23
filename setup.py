@@ -35,7 +35,7 @@ setup(
     packages=find_packages('src'),
     zip_safe=True,
     include_package_data=True,
-    namespace_packages=['elevator'],
+    #namespace_packages=['elevator'],
     # TODO: Implement CLI
     #entry_points={
     #    'console_scripts': [
