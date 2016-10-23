@@ -15,7 +15,7 @@ class Building(object):
     """ Container object for elevators """
 
     def __init__(self, number_of_floors=None, number_of_elevators=None):
-        self.floors = OrderedDict()
+        self.floors = []
         self.elevators = []
 
         # Generate floors
@@ -25,7 +25,7 @@ class Building(object):
             floor_count = number_of_floors
 
         for number in xrange(1, floor_count+1):
-            self.floors[number] = Floor(number)
+            self.floors.append(Floor(number))
 
         # Generate elevators
         if number_of_elevators is None:
@@ -33,9 +33,9 @@ class Building(object):
         else:
             elevator_count = number_of_elevators
 
-        for name in xrange(1, elevator_count+1):
+        for identifier in xrange(1, elevator_count+1):
             # TODO: Stagger initialized floors across entire building
-            self.elevators.append(Elevator(label=name, init_floor=0))
+            self.elevators.append(Elevator(identifier, 0))
 
     def __iter__(self):
         for elevator in self.elevators:

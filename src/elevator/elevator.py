@@ -38,8 +38,8 @@ class Elevator(object):
         },
     ]
 
-    def __init__(self, label, init_floor):
-        self.label = label
+    def __init__(self, identifier, init_floor):
+        self.identifier = identifier
         self.floor = init_floor
         self.machine = Machine(
             model=self,
@@ -49,5 +49,5 @@ class Elevator(object):
         )
 
     @classmethod
-    def create_elevator(cls, label, init_floor):
-        return cls(label, init_floor)
+    def create_elevator(cls, identifier, init_floor):
+        return cls(identifier, init_floor)
