@@ -44,6 +44,7 @@ setup(
     #},
     install_requires=[
         'six>=1.5,<2',
+        'transitions==0.4.2',
     ],
     extras_require={
         'dev': [
