@@ -3,7 +3,7 @@
 #
 
 
-from collections import OrderedDict
+from collections import OrderedDict, namedtuple
 from elevator import Elevator
 
 
@@ -42,7 +42,19 @@ class Building(object):
             yield elevator
 
 
-class Floor(object):
+# TODO: Determine if we indeed need a floor object
+class Floor(namedtuple('Floor', 'number')):
 
-    def __init__(self, number):
-        self.number = number
+    __slots__ = ()
+
+
+class Person(namedtuple('Person', 'direction curr_floor dest_floor')):
+    """
+    Represents a person (rider).
+
+    A person chooses a direction when requesting an elevator from the
+    current floor, and then after entering the elevator, requests the
+    destination floor.
+    """
+
+    __slots__ = ()
