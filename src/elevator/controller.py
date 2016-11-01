@@ -69,7 +69,7 @@ class Controller(object):
         :type all_to_stop: bool
         """
 
-        if steps is None or (first_to_stop == all_to_stop):
+        if steps is None or steps < 1 or (first_to_stop == all_to_stop):
             raise ValueError(
                 "Not only must steps must be an integer greater than zero,"
                 "but also first_to_stop and all_to_stop cannot be equal"
@@ -85,3 +85,7 @@ class Controller(object):
                     "Up value must be 1, and down value must be -1."
                     " Got: " + str(request.direction)
                 )
+
+        for elevator in self.building:
+            if elevator.state == 'idle':
+                
